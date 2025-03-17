@@ -4,3 +4,4 @@ pydub
 deep_translator
 gtts 
 transformers
+torch
