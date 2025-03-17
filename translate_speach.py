@@ -75,8 +75,11 @@ text = ""
 
 if inp == "Text":
     text = c1.text_area("Enter Text:", help="Type your text here...")
+elif inp == "MIC":
+    uploaded_file = c1.audio_input("Record a Voice Message")
+    if uploaded_file and c2.button('🎤 Transcribe Audio'):
+        text = transcribe(uploaded_file)
 else:
-    uploaded_file = c2.audio_input("Record a Voice Message")
     uploaded_file = c1.file_uploader("Upload an Audio File", type=["mp3", "wav", "m4a"])
     if uploaded_file and c2.button('🎤 Transcribe Audio'):
         text = transcribe(uploaded_file)
