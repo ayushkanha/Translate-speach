@@ -108,6 +108,8 @@ if c2.button("🔊 Convert to Speech"):
         c2.warning("Please enter text before converting.")
 
 if c2.button("🤔 Sentiment analysis"):
+    if inp != "Text":
+        text = transcribe(uploaded_file)
     if text !="" and text != " ":
         pipe = pl("text-classification", model="tabularisai/multilingual-sentiment-analysis")
         sentence = text
