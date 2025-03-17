@@ -3,3 +3,4 @@ speechrecognition
 pydub
 deep_translator
 gtts 
+transformers
