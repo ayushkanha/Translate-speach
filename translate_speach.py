@@ -5,15 +5,16 @@ from pydub import AudioSegment
 import tempfile
 import os
 import speech_recognition as sr
-from transformers import pipeline
+from transformers import pipeline as pl
 
 
 st.set_page_config(page_title='Simply! Translate', 
                    page_icon='🌍', 
                    layout='wide', 
                    initial_sidebar_state='expanded')
-st.title("Speach to Speach translation ")
-st.text("by Ayush Sahu ")
+st.markdown("<h1 style='text-align: center; color: grey;'>Speach to Speach translation</h1>", unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: center; color: grey;'>by Ayush Sahu </h5>", unsafe_allow_html=True)
+
 st.markdown("""
     <style>
     .stButton button {
@@ -67,8 +68,8 @@ def transcribe(uploaded_file):
     return ""
 
 Languages = {'afrikaans':'af','albanian':'sq','amharic':'am','arabic':'ar','armenian':'hy','azerbaijani':'az','basque':'eu','belarusian':'be','bengali':'bn','bosnian':'bs','bulgarian':'bg','catalan':'ca','cebuano':'ceb','chichewa':'ny','chinese (simplified)':'zh-cn','chinese (traditional)':'zh-tw','corsican':'co','croatian':'hr','czech':'cs','danish':'da','dutch':'nl','english':'en','esperanto':'eo','estonian':'et','filipino':'tl','finnish':'fi','french':'fr','frisian':'fy','galician':'gl','georgian':'ka','german':'de','greek':'el','gujarati':'gu','haitian creole':'ht','hausa':'ha','hawaiian':'haw','hebrew':'iw','hebrew':'he','hindi':'hi','hmong':'hmn','hungarian':'hu','icelandic':'is','igbo':'ig','indonesian':'id','irish':'ga','italian':'it','japanese':'ja','javanese':'jw','kannada':'kn','kazakh':'kk','khmer':'km','korean':'ko','kurdish (kurmanji)':'ku','kyrgyz':'ky','lao':'lo','latin':'la','latvian':'lv','lithuanian':'lt','luxembourgish':'lb','macedonian':'mk','malagasy':'mg','malay':'ms','malayalam':'ml','maltese':'mt','maori':'mi','marathi':'mr','mongolian':'mn','myanmar (burmese)':'my','nepali':'ne','norwegian':'no','odia':'or','pashto':'ps','persian':'fa','polish':'pl','portuguese':'pt','punjabi':'pa','romanian':'ro','russian':'ru','samoan':'sm','scots gaelic':'gd','serbian':'sr','sesotho':'st','shona':'sn','sindhi':'sd','sinhala':'si','slovak':'sk','slovenian':'sl','somali':'so','spanish':'es','sundanese':'su','swahili':'sw','swedish':'sv','tajik':'tg','tamil':'ta','telugu':'te','thai':'th','turkish':'tr','turkmen':'tk','ukrainian':'uk','urdu':'ur','uyghur':'ug','uzbek':'uz','vietnamese':'vi','welsh':'cy','xhosa':'xh','yiddish':'yi','yoruba':'yo','zulu':'zu'}
-c1, c2 = st.columns(2)
-
+c1, c3 ,c2 = st.columns(3)
+c3.text(" ")
 inp = c1.selectbox('Choose Input Format', ("Text", "Audio"))
 text = ""
 
@@ -105,7 +106,7 @@ if c2.button("🔊 Convert to Speech"):
 
 if c2.button("🤔 Sentiment analysis"):
     if text !="" and text != " ":
-        pipe = pipeline("text-classification", model="tabularisai/multilingual-sentiment-analysis")
+        pipe = pl("text-classification", model="tabularisai/multilingual-sentiment-analysis")
         sentence = text
         result = pipe(sentence)[0] 
 
