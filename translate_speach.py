@@ -5,7 +5,7 @@ from pydub import AudioSegment
 import tempfile
 import os
 import speech_recognition as sr
-from transformers import pipeline as pl
+from transformers import pipeline
 
 
 st.set_page_config(page_title='Simply! Translate', 
@@ -111,7 +111,7 @@ if c2.button("🤔 Sentiment analysis"):
     if inp != "Text":
         text = transcribe(uploaded_file)
     if text !="" and text != " ":
-        pipe = pl("text-classification", model="tabularisai/multilingual-sentiment-analysis")
+        pipe = pipeline("text-classification", model="tabularisai/multilingual-sentiment-analysis")
         sentence = text
         result = pipe(sentence)[0] 
 
