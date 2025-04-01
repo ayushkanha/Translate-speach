@@ -12,7 +12,7 @@ st.set_page_config(page_title='Simply! Translate',
                    page_icon='🌍', 
                    layout='wide', 
                    initial_sidebar_state='expanded')
-st.markdown("<h1 style='text-align: center; color: grey;'>Speach to Speach translation</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: grey;'>Speech to Speech translation</h1>", unsafe_allow_html=True)
 st.markdown("<h5 style='text-align: center; color: grey;'>by Ayush Sahu </h5>", unsafe_allow_html=True)
 
 st.markdown("""
