@@ -105,7 +105,7 @@ if c2.button("🔊 Convert to Speech"):
         audio_file = text_to_speech(translated_text, value2)
         c2.audio(audio_file, format='audio/mp3', autoplay=True)
         st.download_button(label="Download Audio",
-                     data=audio_bytes,
+                     data=audio_file,
                      file_name="output.mp3",
                      mime="audio/mp3")
     else:
